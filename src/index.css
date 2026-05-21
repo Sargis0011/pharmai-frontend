@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --brand: 79 70 229;
+  --brand-soft: 238 242 255;
+  --surface: 255 255 255;
+  --bg: 248 250 252;
+  --border: 226 232 240;
+  --text: 15 23 42;
+  --muted: 100 116 139;
+}
+
+html, body { height: 100%; }
+
+body {
+  @apply text-slate-900 antialiased;
+  background:
+    radial-gradient(1200px 600px at 90% -10%, rgba(99,102,241,0.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 10%, rgba(56,189,248,0.08), transparent 60%),
+    #f8fafc;
+  font-feature-settings: "cv02","cv03","cv04","cv11";
+}
+
+@layer components {
+  .container-app { @apply max-w-6xl mx-auto px-4; }
+
+  .card {
+    @apply bg-white border border-slate-200/80 rounded-2xl shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.08)];
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(15,23,42,0.04),0_16px_40px_-16px_rgba(79,70,229,0.18)] hover:border-indigo-200;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/40 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-indigo-600 text-white shadow-sm hover:bg-indigo-700 hover:shadow active:translate-y-px;
+  }
+  .btn-ghost {
+    @apply btn bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50;
+  }
+  .btn-soft {
+    @apply btn bg-indigo-50 text-indigo-700 hover:bg-indigo-100;
+  }
+
+  .input {
+    @apply w-full h-11 px-4 rounded-xl border border-slate-200 bg-white shadow-sm placeholder:text-slate-400 focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 transition;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm border border-slate-200 bg-white text-slate-700 hover:border-slate-300 transition;
+  }
+  .chip-active {
+    @apply bg-indigo-600 border-indigo-600 text-white hover:border-indigo-600;
+  }
+
+  .section-title {
+    @apply text-lg font-semibold text-slate-900 tracking-tight;
+  }
+
+  .surface-muted {
+    @apply bg-slate-50 border border-slate-200/80 rounded-2xl;
+  }
+}
+
+.scrollbar-clean::-webkit-scrollbar { height: 8px; width: 8px; }
+.scrollbar-clean::-webkit-scrollbar-thumb { background: rgb(203 213 225); border-radius: 999px; }
