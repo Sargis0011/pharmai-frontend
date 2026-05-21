@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-export const api = axios.create({ baseURL: '/api' })
+export const api = axios.create({
+  baseURL: "https://pharmai-backend-production.up.railway.app"
+})
 
 export const fetchMedicines = (params) => api.get('/medicines', { params }).then(r => r.data)
 export const fetchMedicine  = (id) => api.get(`/medicines/${id}`).then(r => r.data)
